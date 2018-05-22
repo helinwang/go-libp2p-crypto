@@ -30,12 +30,14 @@ const (
 	RSA = iota
 	Ed25519
 	Secp256k1
+	BLS
 )
 
 var KeyTypes = []int{
 	RSA,
 	Ed25519,
 	Secp256k1,
+	BLS,
 }
 
 // PubKeyUnmarshaller is a func that creates a PubKey from a given slice of bytes
@@ -48,12 +50,14 @@ var PubKeyUnmarshallers = map[pb.KeyType]PubKeyUnmarshaller{
 	pb.KeyType_RSA:       UnmarshalRsaPublicKey,
 	pb.KeyType_Ed25519:   UnmarshalEd25519PublicKey,
 	pb.KeyType_Secp256k1: UnmarshalSecp256k1PublicKey,
+	pb.KeyType_BLS:       UnmarshalBLSPublicKey,
 }
 
 var PrivKeyUnmarshallers = map[pb.KeyType]PrivKeyUnmarshaller{
 	pb.KeyType_RSA:       UnmarshalRsaPrivateKey,
 	pb.KeyType_Ed25519:   UnmarshalEd25519PrivateKey,
 	pb.KeyType_Secp256k1: UnmarshalSecp256k1PrivateKey,
+	pb.KeyType_BLS:       UnmarshalBLSPrivateKey,
 }
 
 // Key represents a crypto key that can be compared to another key

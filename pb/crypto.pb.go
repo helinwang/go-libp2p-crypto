@@ -27,17 +27,20 @@ const (
 	KeyType_RSA       KeyType = 0
 	KeyType_Ed25519   KeyType = 1
 	KeyType_Secp256k1 KeyType = 2
+	KeyType_BLS       KeyType = 3
 )
 
 var KeyType_name = map[int32]string{
 	0: "RSA",
 	1: "Ed25519",
 	2: "Secp256k1",
+	3: "BLS",
 }
 var KeyType_value = map[string]int32{
 	"RSA":       0,
 	"Ed25519":   1,
 	"Secp256k1": 2,
+	"BLS":       3,
 }
 
 func (x KeyType) Enum() *KeyType {
